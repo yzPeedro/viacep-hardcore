@@ -1,0 +1,66 @@
+{
+  "name": "yzpeedro/viacep-hardcore",
+  "description": "A hardcore PHP library for accessing the ViaCEP API.",
+  "type": "library",
+  "license": "MIT",
+  "version": "1.0.0",
+  "keywords": [
+    "viacep",
+    "cep",
+    "address",
+    "php",
+    "library"
+  ],
+  "homepage": "https://github.com/yzpeedro/viacep-hardcore",
+  "support": {
+    "issues": "https://github.com/yzpeedro/viacep-hardcore/issues",
+    "source": "https://github.com/yzpeedro/viacep-hardcore"
+  },
+  "require": {
+    "php": "^8.1",
+    "guzzlehttp/guzzle": "^7.9",
+    "fakerphp/faker": "^1.21"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^7.3",
+    "phpunit/phpunit": "^12.2",
+    "friendsofphp/php-cs-fixer": "*",
+    "phpstan/phpstan": "^2.1"
+  },
+  "scripts": {
+    "fix": [
+      "php-cs-fixer fix src --rules=@PSR12",
+      "php-cs-fixer fix tests --rules=@PSR12"
+    ],
+    "test": [
+      "phpunit"
+    ],
+    "analyse": [
+      "phpstan analyse src",
+      "phpstan analyse tests"
+    ],
+    "check": [
+      "composer fix",
+      "composer analyse",
+      "composer test"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "Yzpeedro\\ViacepHardcore\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Yzpeedro\\ViacepHardcore\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "yzPeedro",
+      "email": "pedrocruzpessoa16@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
