@@ -1,0 +1,94 @@
+<?php
+
+namespace Yzpeedro\ViacepHardcore\Entities;
+
+use Override;
+use Yzpeedro\ViacepHardcore\Abstract\Entities\Entity;
+use Yzpeedro\ViacepHardcore\Contracts\Fakecable;
+use Yzpeedro\ViacepHardcore\Contracts\Gettable;
+use Yzpeedro\ViacepHardcore\Contracts\IsValid;
+use Yzpeedro\ViacepHardcore\Contracts\Settable;
+use Yzpeedro\ViacepHardcore\Exceptions\InvalidDDDArgumentException;
+use Yzpeedro\ViacepHardcore\Helpers\Faker;
+use Yzpeedro\ViacepHardcore\Helpers\JsonSerializable;
+use Yzpeedro\ViacepHardcore\Traits\Arrayable;
+use Yzpeedro\ViacepHardcore\Traits\Makeable;
+
+class DDD extends Entity implements Fakecable, Gettable, Settable, IsValid
+{
+    use Faker;
+    use Arrayable;
+    use Makeable;
+    use JsonSerializable;
+
+    public function __construct(
+        private string $ddd = ''
+    ) {
+    }
+
+    /**
+     * Get a randomly generated ddd.
+     *
+     * @return string
+     */
+    #[Override]
+    public static function fake(): string
+    {
+        $faker = (new self(''))->getInstance();
+        $ddd = $faker->numberBetween(11, 99);
+
+        return str_pad($ddd, 2, '0', STR_PAD_LEFT);
+    }
+
+    /**
+     * Get the ddd.
+     *
+     * @return string
+     */
+    #[Override]
+    public function get(): string
+    {
+        return $this->ddd;
+    }
+
+    /**
+     * Get the value of ddd as a string.
+     *
+     * @return string
+     */
+    #[Override]
+    public function __toString(): string
+    {
+        return $this->ddd;
+    }
+
+    /**
+     * Check if the ddd is valid.
+     *
+     * @return bool
+     */
+    #[Override]
+    public function isValid(): bool
+    {
+        return preg_match('/^(1[1-9]|[2-9][0-9])$/', $this->ddd) === 1;
+    }
+
+    /**
+     * Set the ddd value.
+     *
+     * @param mixed $value
+     * @return static
+     * @throws InvalidDDDArgumentException
+     */
+    #[Override]
+    public function set(mixed $value): static
+    {
+        $this->ddd = str_pad((string) $value, 2, '0', STR_PAD_LEFT);
+
+        if (!$this->isValid()) {
+            throw new InvalidDDDArgumentException('Invalid DDD value');
+        }
+
+        return $this;
+    }
+}
