@@ -1,8 +1,8 @@
 # 🧠 ViaCEP Hardcore
 
-[![Tests](https://github.com/yzpeedro/viacep-hardcore/actions/workflows/run-tests.yml/badge.svg)](https://github.com/yzpeedro/viacep-hardcore/actions)
+[![Tests](https://github.com/yzpeedro/viacep-hardcore/actions/workflows/php.yml/badge.svg)](https://github.com/yzpeedro/viacep-hardcore/actions)
 [![Latest Version](https://img.shields.io/packagist/v/yzpeedro/viacep-hardcore.svg?style=flat-square)](https://packagist.org/packages/yzpeedro/viacep-hardcore)
-[![License](https://img.shields.io/github/license/yzpeedro/viacep-hardcore.svg?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/github/license/yzpeedro/viacep-hardcore.svg?style=flat-square)](https://github.com/yzpeedro/viacep-hardcore/blob/main/LICENSE)
 
 Uma biblioteca **hardcore** e moderna em php para consumir a api [ViaCEP](https://viacep.com.br), com tipagem forte, validações e foco em testes.
 
