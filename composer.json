@@ -3,7 +3,6 @@
   "description": "A hardcore PHP library for accessing the ViaCEP API.",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.0",
   "keywords": [
     "viacep",
     "cep",
